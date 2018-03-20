@@ -1,2 +1,2 @@
-import * from './alert.actions';
-import * from './user.actions';
+export * from './alert.actions';
+export * from './user.actions';

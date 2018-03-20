@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { userActions } from '../_actions';
 
 class HomePage extends React.Component {
+  componentDidMount() {
+      this.props.dispatch(userActions.getAll());
+  }
 
   handleDeleteuser(userId) {
     return (e) => this.props.dispatch(userActions.delete(userId));
@@ -18,19 +21,20 @@ class HomePage extends React.Component {
         <p> Welcome to React Tutorial</p>
         <h3> All Registered users: </h3>
         {users.loading && <em> Loading users ... </em>}
-        users.items &&
+        {users.items &&
         <ul>
           {users.items.map((user, index) =>
               <li key={user.id}>
                   {user.firstName+ '' + user.lastName }
                   {
-                    user.deleting && <em> Deleting ...</em>
+                    user.deleting ? <em> Deleting ...</em>
                     : user.deleteError ?  <span> ERROR: Error in deleting user:  {user.delete} </span>
                     : <span> - <a onClick={this.handleDeleteuser(user.id)} >Delete</a>  </span>
                   }
               </li>
             ) }
         </ul>
+      }
         <p>
           <Link to="/login">Logout</Link>
         </p>

@@ -5,12 +5,13 @@ import { Provider } from 'react-redux';
 import { store } from './_helpers';
 import { App } from './App';
 
+// setup fake backend
 import { configureFakeBackend } from './_helpers';
-configureFakeBackend(); //I don't know what's this. Have to look into this functionality
+configureFakeBackend();
 
 render(
-  <Provider store={store} >
-    <App />
-  </Provider>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app')
 );

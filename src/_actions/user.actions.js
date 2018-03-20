@@ -23,7 +23,7 @@ function login(username, password) {
       },
       error => {
         dispatch(failure(error));
-        dispatch(alertActions.alert(error));
+        dispatch(alertActions.error(error));
       }
     )
   }
@@ -67,7 +67,7 @@ function getAll() {
 
     userService.getAll()
     .then(
-      user => dispatch(success(user));
+      user => dispatch(success(user)),
       error => {
         dispatch(failure(error));
         dispatch(alertActions.error(error));

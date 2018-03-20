@@ -14,7 +14,7 @@ function login(username,password) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password });
+    body: JSON.stringify({ username, password })
   }
   return fetch('/users/authenticate', requestOptions)
   .then(
@@ -27,6 +27,7 @@ function login(username,password) {
   )
   .then(
     user => {
+      console.log(user,"User Info");
       if(user && user.token) {
         localStorage.setItem('user', JSON.stringify('user'));
       }

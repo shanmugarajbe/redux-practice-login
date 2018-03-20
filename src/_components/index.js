@@ -1,1 +1,1 @@
-import * from './PrivateRoute';
+export * from './PrivateRoute';

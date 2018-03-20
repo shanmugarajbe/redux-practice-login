@@ -1,1 +1,1 @@
-import * from './LoginPage';
+export * from './LoginPage';
